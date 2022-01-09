@@ -6,6 +6,10 @@ import store from './store'
 import "bootstrap"
 import "./styles/global.scss"
 
+// eventbus
+import mitt from 'mitt';
+const emitter = mitt();
+
 /**
  * Load locales json files
  * @returns {{}}
@@ -36,4 +40,6 @@ const i18n = createI18n({
     messages: loadLocaleMessages(), // set locale messages
 });
 
-createApp(App).use(store).use(i18n).use(router).mount('#app')
+const app = createApp(App);
+app.config.globalProperties.emitter = emitter;
+app.use(store).use(i18n).use(router).mount('#app')

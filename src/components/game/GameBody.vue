@@ -25,11 +25,13 @@ Array.prototype.shuffle=function(){
 
 export default {
   name: "GameBody",
+  emits: ["restartGame"],
   data() {
     return {
       cardsNumber: 0,
       cardsExtraClass: "",
-      cards: []
+      cards: [],
+      active_player_id: 1
     }
   },
   computed: {
@@ -44,6 +46,57 @@ export default {
     }
   },
   methods: {
+    startGame(isNewStart) {
+      // remove flip class from all cards
+      this.cards.forEach(c => {
+        document.getElementById(`card_${c.idx}`).classList.remove("flip")
+      })
+
+      if (this.players.length === 1) {
+        if (this.selectedLevel === 'easy') {
+          this.cardsNumber = 6
+          this.cardsExtraClass = "row-cols-md-3"
+        } else if (this.selectedLevel === 'medium') {
+          this.cardsNumber = 8
+          this.cardsExtraClass = "row-cols-md-4"
+        } else {
+          this.cardsNumber = 10
+          this.cardsExtraClass = "row-cols-md-4"
+        }
+      } else {
+        if (this.selectedLevel === 'easy') {
+          this.cardsNumber = 14
+          this.cardsExtraClass = "row-cols-md-4"
+        } else if (this.selectedLevel === 'medium') {
+          this.cardsNumber = 16
+          this.cardsExtraClass = "row-cols-md-4"
+        } else {
+          this.cardsNumber = 20
+          this.cardsExtraClass = "row-cols-md-4"
+        }
+      }
+
+      setTimeout(() => {
+        // making the cards array
+        this.cards = []
+        let e = 0;
+        for (let i=0; i<this.cardsNumber; i++) {
+          if (i % 2 === 0) e++
+
+          this.cards.push(
+              {
+                idx: i,
+                card_name: e,
+                flipped: false,
+                won: false
+              }
+          )
+        }
+
+        // resort cards array random
+        this.cards.shuffle()
+      }, isNewStart ? 1000 : 0)
+    },
     flipThisCard(event, idx) {
 
       // check if this card won
@@ -102,51 +155,17 @@ export default {
           })
         }, 1000)
       }
+    },
+    restartGame() {
+      this.startGame(true)
     }
   },
   beforeMount() {
-    if (this.players.length === 1) {
-      if (this.selectedLevel === 'easy') {
-        this.cardsNumber = 6
-        this.cardsExtraClass = "row-cols-md-3"
-      } else if (this.selectedLevel === 'medium') {
-        this.cardsNumber = 8
-        this.cardsExtraClass = "row-cols-md-4"
-      } else {
-        this.cardsNumber = 10
-        this.cardsExtraClass = "row-cols-md-4"
-      }
-    } else {
-      if (this.selectedLevel === 'easy') {
-        this.cardsNumber = 14
-        this.cardsExtraClass = "row-cols-md-4"
-      } else if (this.selectedLevel === 'medium') {
-        this.cardsNumber = 16
-        this.cardsExtraClass = "row-cols-md-4"
-      } else {
-        this.cardsNumber = 20
-        this.cardsExtraClass = "row-cols-md-4"
-      }
-    }
+    // start new Game
+    this.startGame(false)
 
-    // making the cards array
-    this.cards = []
-    let e = 0;
-    for (let i=0; i<this.cardsNumber; i++) {
-      if (i % 2 === 0) e++
-
-      this.cards.push(
-          {
-            idx: i,
-            card_name: e,
-            flipped: false,
-            won: false
-          }
-      )
-    }
-
-    // resort cards array random
-    this.cards.shuffle()
+    // get event restartGame
+    this.emitter.on("restartGame", this.restartGame)
   }
 }
 </script>
@@ -182,7 +201,10 @@ export default {
             background-color: #ddd
             filter: contrast(0.5)
         &--front
-          background-image: radial-gradient(circle, #6bd1a1, #7ed69b)
+          background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent), linear-gradient(-45deg, #555 25%, transparent 25%, transparent), linear-gradient(45deg, transparent 75%, #555 75%), linear-gradient(-45deg, transparent 75%, #555 75%)
+          background-size: 45px 45px
+          background-position: center
+          border: 2px solid #555
 
 @media (min-width: 900px)
   .game-body

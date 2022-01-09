@@ -65,6 +65,7 @@ export default {
       }, 1000)
     },
     restartGame() {
+      this.emitter.emit("restartGame")
       this.restartTimer()
     }
   }
