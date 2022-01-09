@@ -3,10 +3,10 @@
     <p class="h4 fw-bold mb-4">{{ $t('how_many_players') }}</p>
 
     <Player v-for="player in players" :player="player" :key="player.id" />
-    <p class="mt-3 cursor-pointer d-inline-block" @click="addPlayer(2)" v-if="players.length === 1">
+    <!--p class="mt-3 cursor-pointer d-inline-block" @click="addPlayer(2)" v-if="players.length === 1">
       <i class="bi bi-plus-square-fill"></i>
       {{ $t("add_player") }}
-    </p>
+    </p-->
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     addPlayer(id) {
       this.$store.commit("game/addPlayer", {
         id: id,
-        name: this.$t('player') + ' ' + id,
+        name: this.$t('player'),
         score: 0
       })
     }

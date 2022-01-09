@@ -185,6 +185,11 @@ export default {
 
     // get event restartGame
     this.emitter.on("restartGame", this.restartGame)
+
+    // reset scores
+    this.players.forEach(p => {
+      p.score = 0
+    })
   }
 }
 </script>
