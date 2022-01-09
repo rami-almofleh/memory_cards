@@ -51,6 +51,11 @@ export default {
         return;
       }
 
+      // check if this card flipped
+      if (this.cards.filter(c => c.idx === idx && c.flipped).length > 0) {
+        return;
+      }
+
       // get array from all flipped cards
       const flipped_cards = this.cards.filter(c => c.flipped && !c.won)
 
