@@ -1,9 +1,6 @@
 <template>
-  {{ selectedImageType }}
-  {{ selectedLevel }}
-  {{ players }}
   <div class="container">
-    <div class="game-body p-3 mx-auto row row-cols-1 g-4 justify-content-center" :class="cardsExtraClass">
+    <div class="game-body p-3 mx-auto row row-cols-3 g-4 justify-content-center" :class="cardsExtraClass">
       <div class="col" v-for="card in cards" :key="card.idx">
         <div class="scene">
           <div class="card shadow-lg border-0" :class="selectedImageType" :data-cardname="card.card_name" @click="flipThisCard($event, card.idx)" :id="`card_${card.idx}`">
@@ -18,7 +15,7 @@
 
 <script>
 Array.prototype.shuffle=function(){
-  var len = this.length,temp,i
+  let len = this.length,temp,i
   while(len){
     i=Math.random()*len-- |0;
     temp=this[len],this[len]=this[i],this[i]=temp;
@@ -49,6 +46,14 @@ export default {
   methods: {
     flipThisCard(event, idx) {
 
+      // get array from all flipped cards
+      const flipped_cards = this.cards.filter(c => c.flipped)
+
+      // when 2 cards are flipped then don't flip this one
+      if (flipped_cards.length === 2) {
+        return;
+      }
+
       // flip this card
       this.cards.forEach(c => {
         if (c.idx === idx) {
@@ -57,11 +62,8 @@ export default {
       })
       event.target.parentElement.classList.toggle("flip")
 
-      // get array from all flipped cards
-      const flipped_cards = this.cards.filter(c => c.flipped)
-
       // when 2 cards are flipped, then all cards after 1 Second will be return to front face
-      if (flipped_cards.length === 2) {
+      if (this.cards.filter(c => c.flipped).length === 2) {
         setTimeout(() => {
           this.cards.forEach(c => {
             if (c.flipped) {
@@ -148,7 +150,7 @@ export default {
         &--back
           transform: rotateY(180deg)
         &--front
-          background-image: radial-gradient(circle, #6bd1a1, #7ed69b, #90db95, #a4df90, #b7e38b, #c2e686, #cee981, #dbeb7d, #e2ee76, #eaf16f, #f2f467, #fbf65f)
+          background-image: radial-gradient(circle, #6bd1a1, #7ed69b)
 
 @media (min-width: 900px)
   .game-body
