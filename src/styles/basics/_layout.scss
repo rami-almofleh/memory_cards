@@ -1,0 +1,293 @@
+html,
+body {
+  height: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.form-control {
+  border-radius: 0 !important;
+}
+
+#app {
+  height: 100%;
+}
+
+.bg-none {
+  background: none !important;
+}
+
+textarea.form-control {
+  min-height: 94px !important;
+}
+
+label {
+  width: 100%;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .modal-dialog.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+}
+
+.form-select:focus {
+  outline: none;
+}
+
+
+.card.fruit {
+  &[data-cardname="1"] {
+    .card__face--back {
+      background: url("../assets/fruit/1.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="2"] {
+    .card__face--back {
+      background: url("../assets/fruit/2.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="3"] {
+    .card__face--back {
+      background: url("../assets/fruit/3.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="4"] {
+    .card__face--back {
+      background: url("../assets/fruit/4.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="5"] {
+    .card__face--back {
+      background: url("../assets/fruit/5.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="6"] {
+    .card__face--back {
+      background: url("../assets/fruit/6.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="7"] {
+    .card__face--back {
+      background: url("../assets/fruit/7.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="8"] {
+    .card__face--back {
+      background: url("../assets/fruit/8.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="9"] {
+    .card__face--back {
+      background: url("../assets/fruit/9.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="10"] {
+    .card__face--back {
+      background: url("../assets/fruit/10.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+.card.sport {
+  &[data-cardname="1"] {
+    .card__face--back {
+      background: url("../assets/sport/1.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="2"] {
+    .card__face--back {
+      background: url("../assets/sport/2.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="3"] {
+    .card__face--back {
+      background: url("../assets/sport/3.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="4"] {
+    .card__face--back {
+      background: url("../assets/sport/4.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="5"] {
+    .card__face--back {
+      background: url("../assets/sport/5.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="6"] {
+    .card__face--back {
+      background: url("../assets/sport/6.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="7"] {
+    .card__face--back {
+      background: url("../assets/sport/7.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="8"] {
+    .card__face--back {
+      background: url("../assets/sport/8.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="9"] {
+    .card__face--back {
+      background: url("../assets/sport/9.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="10"] {
+    .card__face--back {
+      background: url("../assets/sport/10.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+.card.vegetable {
+  &[data-cardname="1"] {
+    .card__face--back {
+      background: url("../assets/vegetable/1.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="2"] {
+    .card__face--back {
+      background: url("../assets/vegetable/2.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="3"] {
+    .card__face--back {
+      background: url("../assets/vegetable/3.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="4"] {
+    .card__face--back {
+      background: url("../assets/vegetable/4.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="5"] {
+    .card__face--back {
+      background: url("../assets/vegetable/5.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="6"] {
+    .card__face--back {
+      background: url("../assets/vegetable/6.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="7"] {
+    .card__face--back {
+      background: url("../assets/vegetable/7.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="8"] {
+    .card__face--back {
+      background: url("../assets/vegetable/8.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="9"] {
+    .card__face--back {
+      background: url("../assets/vegetable/9.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="10"] {
+    .card__face--back {
+      background: url("../assets/vegetable/10.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+.card.music {
+  &[data-cardname="1"] {
+    .card__face--back {
+      background: url("../assets/music/1.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="2"] {
+    .card__face--back {
+      background: url("../assets/music/2.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="3"] {
+    .card__face--back {
+      background: url("../assets/music/3.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="4"] {
+    .card__face--back {
+      background: url("../assets/music/4.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="5"] {
+    .card__face--back {
+      background: url("../assets/music/5.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="6"] {
+    .card__face--back {
+      background: url("../assets/music/6.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="7"] {
+    .card__face--back {
+      background: url("../assets/music/7.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="8"] {
+    .card__face--back {
+      background: url("../assets/music/8.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="9"] {
+    .card__face--back {
+      background: url("../assets/music/9.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+  &[data-cardname="10"] {
+    .card__face--back {
+      background: url("../assets/music/10.png") center no-repeat;
+      background-size: contain;
+    }
+  }
+}

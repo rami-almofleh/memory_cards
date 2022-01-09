@@ -1,0 +1,21 @@
+{
+    "next": "Weiter",
+    "back": "Zurück",
+    "how_many_players": "Wie viele Spieler?",
+    "add_player": "Spieler hinzufügen",
+    "player": "Spieler",
+    "please_select_level": "Wie schwer soll die Spiele sein?",
+    "please_select_images_type": "Wähle bitte die Bilder Art",
+    "start_game": "Spiele starten",
+    "level": "Stufe",
+    "timer": "Zeit",
+    "reset_game": "Neustarten",
+    "easy": "Einfach",
+    "medium": "Mittel",
+    "hard": "Schwer",
+    "sport": "Sport",
+    "fruit": "Obst",
+    "vegetable": "Gemüse",
+    "music": "Musik",
+    "start_now": "jetzt starten"
+}

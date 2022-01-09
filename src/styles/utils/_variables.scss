@@ -1,0 +1,29 @@
+// Check node_modules/bootstrap/scss/_variables.scss from bootstrap for overwriting bootstrap variables
+
+// Colors
+$primary: #004bd5;
+$secondary: #323639;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$gray: #cbcbcb;
+$dark: #212529;
+$primary-light: #db384e;
+$secondary-light: #52575c;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "primary-light": $primary-light,
+  "secondary-light": $secondary-light,
+);
+
+// Add more variables if needed

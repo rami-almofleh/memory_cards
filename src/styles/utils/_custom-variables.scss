@@ -1,0 +1,22 @@
+// #################################################################
+// Spacing
+// #################################################################
+:root {
+  --gloabl-padding-right: 35px;
+  --gloabl-padding-left: 35px;
+
+  @include media-breakpoint-up(lg) {
+    --gloabl-padding-right: 50px;
+    --gloabl-padding-left: 55px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    --gloabl-padding-right: 70px;
+    --gloabl-padding-left: 55px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    --gloabl-padding-right: 105px;
+    --gloabl-padding-left: 85px;
+  }
+}

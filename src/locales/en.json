@@ -1,0 +1,21 @@
+{
+    "next": "Next",
+    "back": "Back",
+    "how_many_players": "How many players?",
+    "add_player": "Add Player",
+    "player": "Player",
+    "please_select_level": "How hard should the games be?",
+    "please_select_images_type": "Please choose the images type",
+    "start_game": "Start game",
+    "level": "Level",
+    "timer": "Timer",
+    "reset_game": "Restart game",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "sport": "Sport",
+    "fruit": "Fruit",
+    "vegetable": "Vegetable",
+    "music": "Music",
+    "start_now": "Start now"
+}
