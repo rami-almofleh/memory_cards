@@ -4,8 +4,8 @@
       <div class="col" v-for="card in cards" :key="card.idx">
         <div class="scene">
           <div class="card shadow-lg border-0" :class="selectedImageType" :data-cardname="card.card_name" @click="flipThisCard($event, card.idx)" :id="`card_${card.idx}`">
-            <div class="card__face card__face--front">Front {{ card }}</div>
-            <div class="card__face card__face--back"></div>
+            <div class="card__face card__face--front"></div>
+            <div class="card__face card__face--back" :class="{'won' : card.won}"></div>
           </div>
         </div>
       </div>
@@ -46,8 +46,13 @@ export default {
   methods: {
     flipThisCard(event, idx) {
 
+      // check if this card won
+      if (this.cards.filter(c => c.idx === idx && c.won).length > 0) {
+        return;
+      }
+
       // get array from all flipped cards
-      const flipped_cards = this.cards.filter(c => c.flipped)
+      const flipped_cards = this.cards.filter(c => c.flipped && !c.won)
 
       // when 2 cards are flipped then don't flip this one
       if (flipped_cards.length === 2) {
@@ -63,13 +68,31 @@ export default {
       event.target.parentElement.classList.toggle("flip")
 
       // when 2 cards are flipped, then all cards after 1 Second will be return to front face
-      if (this.cards.filter(c => c.flipped).length === 2) {
+      const flipped_cards_new_array = this.cards.filter(c => c.flipped && !c.won)
+      if (flipped_cards_new_array.length === 2) {
         setTimeout(() => {
           this.cards.forEach(c => {
+
+            // check if flipped
             if (c.flipped) {
-              // return this card to front face
-              c.flipped = false
-              document.getElementById(`card_${c.idx}`).classList.toggle("flip")
+
+              // check if won
+              if (!c.won) {
+                let tt = flipped_cards_new_array.map(c => c.card_name).reduce(function(a,b){
+                  if (a.indexOf(b) < 0 ) a.push(b);
+                  return a;
+                },[]);
+
+                if (tt.length === 1) {
+                  c.won = true
+                }
+              }
+
+              if (!c.won) {
+                // return this card to front face
+                c.flipped = false
+                document.getElementById(`card_${c.idx}`).classList.toggle("flip")
+              }
             }
           })
         }, 1000)
@@ -111,7 +134,8 @@ export default {
           {
             idx: i,
             card_name: e,
-            flipped: false
+            flipped: false,
+            won: false
           }
       )
     }
@@ -149,6 +173,9 @@ export default {
         backface-visibility: hidden
         &--back
           transform: rotateY(180deg)
+          &.won
+            background-color: #ddd
+            filter: contrast(0.5)
         &--front
           background-image: radial-gradient(circle, #6bd1a1, #7ed69b)
 

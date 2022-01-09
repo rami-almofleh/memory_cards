@@ -31,22 +31,6 @@ export default {
   },
   created() {
     this.restartTimer()
-    if (this.selectedImageType === "") {
-      if (localStorage.getItem("selectedImageType")) {
-        this.$store.commit("game/setSelectedImageType", localStorage.getItem("selectedImageType"))
-      } else {
-        this.$store.commit("game/setSelectedImageType", 'fruit')
-      }
-    }
-
-    if (this.selectedLevel === "") {
-      if (localStorage.getItem("selectedLevel")) {
-        this.$store.commit("game/setSelectedLevel", localStorage.getItem("selectedLevel"))
-      } else {
-        this.$store.commit("game/setSelectedLevel", 'medium')
-      }
-    }
-
     if (this.players.length === 0) {
       this.$store.commit("game/addPlayer", {
         id: 1,
