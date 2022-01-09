@@ -1,20 +1,21 @@
 <template>
-  <div class="container-fluid py-4">
-    <div class="d-flex justify-content-between">
-      <router-link to="/settings" class="link-dark">
-        <i class="bi bi-arrow-left h4 fw-bold"></i>
-      </router-link>
-
-      <span>{{ $t("level") }}: <b>{{ $t(selectedLevel) }}</b></span>
-      <span>{{ $t("timer") }}: <b>{{ timer }}</b></span>
-      <button class="btn btn-warning" @click="restartGame">{{ $t("reset_game") }}</button>
+  <div class="blur-bg">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between pt-3">
+        <router-link to="/settings" class="link-dark">
+          <i class="bi bi-arrow-left h4 fw-bold"></i>
+        </router-link>
+        <span>{{ $t("level") }}: <b>{{ $t(selectedLevel) }}</b></span>
+        <span>{{ $t("timer") }}: <b>{{ timer }}</b></span>
+      </div>
+      <div class="d-flex justify-content-evenly py-3 blur-bg">
+        <span class="h4 fw-light" v-for="player in players" :key="player.id">{{ player.name }}: <span
+            class="fw-bold">{{ player.score }}</span></span>
+        <button class="btn btn-warning" @click="restartGame">{{ $t("reset_game") }}</button>
+      </div>
     </div>
-    <div class="d-flex justify-content-evenly my-3">
-      <span class="h4 fw-light" v-for="player in players" :key="player.id">{{ player.name }}: <span class="fw-bold">{{ player.score }}</span></span>
-    </div>
-
-    <game-body />
   </div>
+  <game-body/>
 </template>
 
 <script>

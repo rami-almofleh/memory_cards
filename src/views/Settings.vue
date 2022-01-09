@@ -1,10 +1,12 @@
 <template>
-  <div class="container-fluid">
-    <players />
-    <levels />
-    <images />
+  <div class="blur-bg">
+    <div class="container-fluid pb-4">
+      <players />
+      <levels />
+      <images />
 
-    <router-link to="/game" class="btn btn-primary mt-4">{{ $t("start_now") }}</router-link>
+      <router-link to="/game" class="btn btn-primary mt-4">{{ $t("start_now") }}</router-link>
+    </div>
   </div>
 </template>
 

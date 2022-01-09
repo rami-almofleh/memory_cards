@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light blur-bg">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold">Memory cards</a>
       <form>

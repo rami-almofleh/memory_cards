@@ -1,6 +1,6 @@
 <template>
   <div class="py-3">
-    <p class="h4 fw-bold mb-4">{{ $t('how_many_players') }}</p>
+    <p class="h4 fw-bold mb-4">{{ $t('what_is_your_name') }}</p>
 
     <Player v-for="player in players" :player="player" :key="player.id" />
     <!--p class="mt-3 cursor-pointer d-inline-block" @click="addPlayer(2)" v-if="players.length === 1">

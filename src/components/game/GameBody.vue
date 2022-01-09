@@ -4,7 +4,7 @@
       <div class="col" v-for="card in cards" :key="card.idx">
         <div class="scene">
           <div class="card shadow-lg border-0" :class="selectedImageType" :data-cardname="card.card_name" @click="flipThisCard($event, card.idx)" :id="`card_${card.idx}`">
-            <div class="card__face card__face--front"></div>
+            <div class="card__face card__face--front bg-secondary"></div>
             <div class="card__face card__face--back" :class="{'won' : card.won}"></div>
           </div>
         </div>
@@ -199,8 +199,8 @@ export default {
   max-width: 90%
 
   .scene
-    width: 90%
-    height: 12rem
+    width: 99%
+    height: 6rem
     perspective: 600px
 
     .card
@@ -224,13 +224,12 @@ export default {
           &.won
             background-color: #ddd
             filter: contrast(0.5)
-        &--front
-          background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent), linear-gradient(-45deg, #555 25%, transparent 25%, transparent), linear-gradient(45deg, transparent 75%, #555 75%), linear-gradient(-45deg, transparent 75%, #555 75%)
-          background-size: 45px 45px
-          background-position: center
-          border: 2px solid #555
+
 
 @media (min-width: 900px)
   .game-body
     max-width: 70%
+
+    .scene
+      height: 8rem
 </style>
