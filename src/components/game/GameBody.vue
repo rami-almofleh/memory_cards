@@ -49,7 +49,9 @@ export default {
     startGame(isNewStart) {
       // remove flip class from all cards
       this.cards.forEach(c => {
-        document.getElementById(`card_${c.idx}`).classList.remove("flip")
+        if (document.getElementById(`card_${c.idx}`)) {
+          document.getElementById(`card_${c.idx}`).classList.remove("flip")
+        }
       })
 
       if (this.players.length === 1) {
@@ -60,12 +62,12 @@ export default {
           this.cardsNumber = 8
           this.cardsExtraClass = "row-cols-md-4"
         } else {
-          this.cardsNumber = 10
+          this.cardsNumber = 12
           this.cardsExtraClass = "row-cols-md-4"
         }
       } else {
         if (this.selectedLevel === 'easy') {
-          this.cardsNumber = 14
+          this.cardsNumber = 12
           this.cardsExtraClass = "row-cols-md-4"
         } else if (this.selectedLevel === 'medium') {
           this.cardsNumber = 16
@@ -143,6 +145,12 @@ export default {
 
                 if (tt.length === 1) {
                   c.won = true
+
+                  this.players.forEach(p => {
+                    if (p.id === this.active_player_id) {
+                      p.score += 0.5
+                    }
+                  })
                 }
               }
 
@@ -155,9 +163,20 @@ export default {
           })
         }, 1000)
       }
+
+      setTimeout(() => {
+        if (this.cards.filter(c => c.flipped).length === this.cards.length) {
+          this.emitter.emit("stopTimer")
+        }
+      },1500)
     },
     restartGame() {
       this.startGame(true)
+
+      // reset scores
+      this.players.forEach(p => {
+        p.score = 0
+      })
     }
   },
   beforeMount() {

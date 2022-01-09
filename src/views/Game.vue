@@ -38,6 +38,11 @@ export default {
         score: 0
       })
     }
+
+    // stop timer event
+    this.emitter.on("stopTimer", () => {
+      clearInterval(this.timerInterval)
+    })
   },
   computed: {
     selectedImageType() {
